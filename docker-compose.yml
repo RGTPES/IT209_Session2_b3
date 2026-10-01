@@ -1,0 +1,11 @@
+services:
+  web:
+    image: nginx:alpine
+    container_name: it209_session2_b3
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/admin.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./.htpasswd:/etc/nginx/.htpasswd:ro
+      - ./html:/var/www/my-web/html:ro
+    restart: unless-stopped

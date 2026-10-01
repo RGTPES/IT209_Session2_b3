@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Doanh Nghiệp - IT209 Bài 3</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(22, 30, 49, 0.85);
+            --primary: #3b82f6;
+            --primary-hover: #2563eb;
+            --accent: #10b981;
+            --text-main: #f3f4f6;
+            --text-sub: #9ca3af;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 10% 20%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, rgba(16, 185, 129, 0.15) 0px, transparent 50%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 48px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 9999px;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #ffffff 0%, #93c5fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.desc {
+            color: var(--text-sub);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 36px;
+            text-align: left;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(59, 130, 246, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .feature-card h3 {
+            font-size: 1rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-card p {
+            color: var(--text-sub);
+            font-size: 0.875rem;
+            line-height: 1.4;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
+            color: #ffffff;
+            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.4);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--primary-hover) 0%, #1e40af 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 25px -5px rgba(59, 130, 246, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .footer-info {
+            margin-top: 36px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        .code-pill {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-family: monospace;
+            color: #f59e0b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="badge">Nginx Web Server • Session 2 Bài 3</div>
+        <h1>Cổng Thông Tin Doanh Nghiệp</h1>
+        <p class="desc">
+            Chào mừng bạn đến với hệ thống máy chủ nội bộ. Các tài nguyên công khai được phục vụ bình thường, trong khi các khu vực quản trị quan trọng được bảo vệ bằng cơ chế xác thực HTTP Basic Authentication.
+        </p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>🌐 Public Gateway</h3>
+                <p>Khu vực cho phép mọi người dùng truy cập tự do không yêu cầu xác thực.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🛡️ Admin Protected</h3>
+                <p>Khu vực <span class="code-pill">/admin</span> được bảo vệ bằng tệp băm <span class="code-pill">.htpasswd</span>.</p>
+            </div>
+            <div class="feature-card">
+                <h3>⚡ Bảo mật Nginx</h3>
+                <p>File mật khẩu được lưu trữ an toàn tại <span class="code-pill">/etc/nginx/</span> ngăn nguy cơ rò rỉ dữ liệu.</p>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <a href="/admin" class="btn btn-primary" id="btn-admin-access">
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                </svg>
+                Truy Cập Khu Vực Quản Trị (/admin)
+            </a>
+            <a href="#info" class="btn btn-secondary" onclick="alert('Đăng nhập với tài khoản: admin_user \nMật khẩu mẫu: Admin@123')">
+                ℹ️ Xem Thông Tin Tài Khoản Mẫu
+            </a>
+        </div>
+
+        <div class="footer-info">
+            Tài khoản quản trị mặc định: <span class="code-pill">admin_user</span> &nbsp;|&nbsp; Đường dẫn: <span class="code-pill">/admin</span>
+        </div>
+    </div>
+</body>
+</html>
